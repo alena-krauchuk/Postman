@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "8ca927b3-677d-4319-bdb1-532f12c2a859",
+		"name": "V_3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17930599"
+	},
+	"item": [
+		{
+			"name": "An_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const respSalary = pm.response.jaon().salary;\r",
+							"\r",
+							"const reqSalary = +pm.request.url.query.get('salary');\r",
+							"\r",
+							"respSalary.forEach((salary, index) => {\r",
+							"    pm.test('${reqSalary} * ${index+1} === ${salary}', () => {\r",
+							"        pm.expect(reqSalary*(index+1)).to.eql(+salary)\r",
+							"    })\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/object_info_4?name={{name}}&age={{age}}&salary={{salary}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"object_info_4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
