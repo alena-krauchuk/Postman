@@ -13,7 +13,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"const respSalary = pm.response.jaon().salary;\r",
+							"const respSalary = pm.response.json().salary;\r",
 							"\r",
 							"const reqSalary = +pm.request.url.query.get('salary');\r",
 							"\r",
